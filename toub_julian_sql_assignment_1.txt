@@ -1,38 +1,32 @@
-1)
+
 select NameLast, NameFirst, Sex, Class, Advisor, City, State, Zip
 from gcds_students
 order by NameLast asc;
 
-2)
 select NameLast, NameFirst
 from gcds_students
 where Advisor = "Lehn, Austin";
 
-3)
 select NameLast, NameFirst, class
 from gcds_students
 where class = 9 or class = 10 or class = 11 or class = 12
 order by Class,NameLast;
 
-4)
 select sex,count(studentID) as "# of Students"
 from gcds_students
 group by sex;
 
-5)
 select
 count(studentID) filter(where class = 9) as "# of 9th Grade Students",
 count(studentID) filter(where class = 12) as "# of 12th Grade Students"
 from gcds_students;
 
-6)
 select Namefirst as "First Name", count(namefirst) as "Frequency"
 from gcds_students
 group by namefirst
 order by COUNT(*) DESC
 limit 10;
 
-7)
 select
 namelast as "Last Name", count(namelast) as "# of Siblings Attending"
 from gcds_students
@@ -42,20 +36,17 @@ order by count(namelast) desc;
 
 
 
-8)
 select *
 from gcds_students
 where class = 12
 order by NameFirst;
 
-9)
 select advisor, count(advisor) as "Number of Advisees" 
 from gcds_students
 group by advisor
 having count(advisor) > 10
 order by count(advisor) desc;
 
-10)
 select city
 from gcds_students
 group by city
